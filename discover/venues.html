@@ -293,13 +293,10 @@
       .faq-section { padding: 40px 20px 56px; }
       .faq-layout { grid-template-columns: 1fr; gap: 24px; }
       .faq-title-left { font-size: 32px; }
-      .partners-inner { padding: 32px 20px 48px; }
-      .partners-header { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 24px; }
-      .partners-title { font-size: 24px; }
-      .partners-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-      .partner-logo-box { padding: 20px 16px; margin-bottom: 10px; }
-      .partner-logo-box img { max-height: 80px; }
-      .partner-desc { font-size: 11px; }
+      .partners-section{padding:48px 24px 56px!important;}
+      .partners-header{flex-direction:column!important;align-items:flex-start!important;gap:12px!important;}
+      .partners-title{font-size:28px!important;}.partners-grid{grid-template-columns:1fr 1fr!important;gap:14px!important;}
+      .sec-crosses{padding:0 24px;}
       .cross-icon { display: none; }
       .tsim-body-inner { grid-template-columns: 1fr; }
     }
@@ -308,7 +305,7 @@
       .hero-title { font-size: 32px; }
       .locations-title { font-size: 24px; }
       .partners-title { font-size: 22px; }
-      .partners-grid { grid-template-columns: 1fr 1fr; }
+      .partners-grid{grid-template-columns:1fr 1fr!important;}
       #venue-map { min-height: 240px; }
     }
   </style>
@@ -609,8 +606,8 @@ function toggleAccordion(num) {
     return marker;
   });
 
-  // open first two by default
-  markers[0].openPopup();
+  // open all markers by default
+markers.forEach(function(m) { m.openPopup(); });
 
   function activateCard(num) {
     markers.forEach(function(m) { m.closePopup(); });
