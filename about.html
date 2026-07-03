@@ -1,0 +1,645 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover • Fak'ugesi Festival 2026</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-Regular.otf') format('opentype'); font-weight:400; font-style:normal; }
+    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-Medium.otf') format('opentype'); font-weight:500; font-style:normal; }
+    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-SemiBold.otf') format('opentype'); font-weight:600; font-style:normal; }
+    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-Bold.otf') format('opentype'); font-weight:700; font-style:normal; }
+    @font-face { font-family:'DxWideground'; src:url('fonts/DxWideground-Regular.otf') format('opentype'); font-weight:400; font-style:normal; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1a2744;
+      --blue-mid:  #2a3f72;
+      --lavender:  #dde3f0;
+      --white:     #ffffff;
+      --dark-text: #0d1b3e;
+      --body-gray: #3a4060;
+      --band:      248px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'InterDisplay', sans-serif; background: var(--white); color: var(--white); overflow-x: hidden; }
+
+    /* ── CROSS ICONS ── */
+    .cross-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 18px; height: 18px; flex-shrink: 0; position: absolute; z-index: 6;
+      opacity: 0.45; transition: transform 0.1s linear !important; animation: none !important;
+    }
+    .cross-icon svg { width: 100%; height: 100%; }
+    .cross-icon--navy { opacity: 1; }
+    .cross-icon--navy svg line { stroke:#1a2744; stroke-width:0.4; }
+    .cross-icon.cross-icon--navy { opacity: 1 !important; }
+
+    /* ── HERO ── */
+    .hero { position: relative; width: 100%; min-height: 520px; overflow: hidden; display: flex; align-items: flex-end; }
+ .hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/image updates/_DMC6876.JPG');
+  background-size: cover;
+  background-position: 70% calc(30% - 20px);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+   
+    .hero-inner { position: relative; z-index: 3; width: 100%; padding: 120px var(--band) 52px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .hero-top-row { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 14px; }
+    .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; color: var(--white); font-family: 'InterDisplay', sans-serif; }
+    .hero-logo { position: absolute; bottom: 181px; right: var(--band); flex-shrink: 0; display: flex; align-items: flex-start; justify-content: center; z-index: 4; }
+    .hero-logo img { height: 110px; width: auto; display: block; filter: brightness(0) invert(1) contrast(1.2); mix-blend-mode: screen; }
+    .hero-title { font-size: 50px; font-weight: 700; line-height: 1.0; color: var(--white); margin-bottom: 20px; font-family: 'InterDisplay', sans-serif; max-width: calc(100% - 180px); }
+    .hero-body { font-size: 13px; line-height: 1.72; max-width: 480px; opacity: 1; margin-bottom: 0; color: var(--white); font-family: 'InterDisplay', sans-serif; }
+    .hero-body p { margin-bottom: 6px; }
+    .hero-body .hero-tagline { margin-top: 16px;  }
+    .hero-dates { font-size: 28px; font-weight: 400; opacity: 0.9; color: var(--white); font-family: 'InterDisplay', sans-serif; letter-spacing: 0.01em; }
+
+    /* ── WHO WE ARE ── */
+    .who-section { background: var(--white); padding: 0 0 0; position: relative; }
+    .crosses-bar { display: flex; justify-content: space-between; padding: 22px 200px; }
+    .crosses-bar svg { width: 18px; height: 18px; }
+    .who-layout { padding: 0 248px 60px; }
+    .who-title { font-size: 50px; font-weight: 900; color: var(--dark-text); line-height: 1.05; margin-bottom: 32px; }
+    .who-body { font-size: 14px; line-height: 1.75; color: var(--dark-text); max-width: 100%; }
+    .who-body p { margin-top: 0; }
+    .who-body-paragraph { margin-top: 40px; }
+
+    /* ── PREVIOUS EDITIONS ── */
+    .editions-section { background: var(--lavender); padding: 0 0 60px; position: relative; overflow: hidden; }
+    .editions-header { padding: 52px 248px 36px; display: flex; align-items: center; justify-content: space-between; }
+    .editions-title { font-size: 46px; font-weight: 900; color: var(--dark-text); }
+    .editions-nav { display: flex; align-items: center; gap: 16px; }
+    .editions-nav button { background: none; border: none; cursor: pointer; font-size: 22px; color: var(--dark-text); padding: 4px 8px; transition: opacity 0.2s; font-family: 'InterDisplay', sans-serif; }
+    .editions-nav button:hover { opacity: 0.5; }
+    .editions-strip-outer { overflow: hidden; padding: 0 0 0 6px; }
+    .editions-strip { display: flex; gap: 20px; width: max-content; padding: 0; transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
+    .edition-card { flex: 0 0 300px; cursor: pointer; border: 1px solid rgba(26,39,68,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+    .edition-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,39,68,0.12); }
+    .edition-img { width: 300px; height: 420px; overflow: hidden; background: #fff; }
+    .edition-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .edition-meta { padding: 16px 16px 20px; }
+    .edition-top-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .edition-year { font-size: 13px; font-weight: 700; color: var(--dark-text); letter-spacing: 0.05em; }
+    .edition-name { font-size: 14px; font-weight: 600; color: var(--dark-text); margin-bottom: 0; line-height: 1.3; text-transform: uppercase; letter-spacing: 0.04em; }
+    .edition-desc { font-size: 12.5px; color: var(--body-gray); line-height: 1.65; }
+
+    /* ── THE TEAM ── */
+    .team-section { background: var(--white); padding: 0 0 72px; position: relative; }
+    .team-crosses-top { display: flex; justify-content: space-between; padding: 22px 200px; }
+    .team-crosses-top svg { width: 18px; height: 18px; }
+    .team-inner { padding: 0 248px; }
+    .team-title { font-size: 46px; font-weight: 900; color: var(--dark-text); margin-bottom: 36px; }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .team-grid-row2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    .team-grid-row3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    .team-grid-row4 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    .team-card { border: 1px solid rgba(26,39,68,0.15); overflow: hidden; display: flex; flex-direction: column; }
+    .team-img { width: 100%; background: var(--white); display: flex; align-items: center; justify-content: center; }
+    .team-img img { width: 100%; height: auto; display: block; }
+    .team-info { background: var(--lavender); padding: 12px 14px 16px; }
+    .team-name { font-size: 24px; font-weight: 700; color: var(--dark-text); line-height: 1.2; margin-bottom: 6px; }
+    .team-role { font-size: 18px; font-weight: 500; color: var(--dark-text); margin-bottom: 6px; }
+    .team-email { font-size: 11px; color: var(--body-gray); }
+    .team-email a { color: var(--body-gray); text-decoration: none; }
+    .team-email a:hover { text-decoration: underline; }
+    .team-grid-row5 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+
+    /* ── GET IN TOUCH ── */
+    .contact-section { background: var(--navy); padding: 64px 248px 72px; position: relative; }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.8fr; gap: 80px; align-items: flex-start; }
+    .contact-title { font-size: 46px; font-weight: 900; color: var(--white); margin-bottom: 40px; }
+    .contact-info-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; margin-bottom: 8px; }
+    .contact-info-val { font-size: 20px; font-weight: 500; color: var(--white); margin-bottom: 28px; line-height: 1.4; }
+    .contact-socials-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; margin-bottom: 12px; }
+    .contact-social-icons { display: flex; gap: 14px; align-items: center; }
+    .contact-social-icons a { color: var(--white); text-decoration: none; transition: opacity 0.2s; }
+    .contact-social-icons a:hover { opacity: 0.55; }
+    .contact-form { align-self: end; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; color: var(--white); }
+    .form-input, .form-select, .form-textarea { background: transparent; border: 1px solid rgba(255,255,255,0.35); color: var(--white); padding: 14px 16px; font-family: 'InterDisplay', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.45); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: rgba(255,255,255,0.8); }
+    .form-select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.6)' stroke-width='2'%3E%3Cline x1='12' y1='5' x2='12' y2='19'/%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 14px; }
+    .form-select option { background: var(--navy); color: var(--white); }
+    .form-textarea { min-height: 160px; resize: vertical; }
+    .form-full { margin-bottom: 14px; }
+
+    /* ── PARTNERS ── */
+    .partners-section {
+      background: var(--lavender);
+      padding: 0;
+      position: relative;
+      border-top: 2px solid var(--navy);
+    }
+    .partners-inner { padding: 40px 248px 72px; }
+    .partners-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+    .partners-title { font-size: 38px; font-weight: 700; color: var(--dark-text); }
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+    .partner-card { display: flex; flex-direction: column; }
+    .partner-logo-link { display: block; text-decoration: none; }
+    .partner-logo-box {
+      background: var(--white);
+      border: 1px solid rgba(26,39,68,0.12);
+      aspect-ratio: 1 / 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 32px;
+      transition: box-shadow 0.3s, transform 0.3s;
+      margin-bottom: 14px;
+    }
+    .partner-card:hover .partner-logo-box { box-shadow: 0 10px 32px rgba(26,39,68,0.13); transform: translateY(-5px); }
+    .partner-logo-box img { max-width: 100%; max-height: 140px; object-fit: contain; display: block; filter: brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%); }
+    .partner-logo-box img.keep-color { filter: none !important; }
+    .partner-desc { font-size: 12px; color: var(--body-gray); line-height: 1.65; }
+    .partner-logo-box img.keep-color { filter: none !important; }
+.partner-logo-box img[alt="Origins Centre"],
+.partner-logo-box img[alt="Tshimologong"] {
+  max-height: 60px;
+  max-width: 85%;
+}
+
+    /* ── Fak'ugesi shared link hover effect ── */
+    .involved-link,.curatorial-view-link,.showcases-link,.showcases-header a,.showcase-card-more,.winners-view-link,.highlights-view-link,.intro-view-link,.network-view-link,.faq-tickets-link,.faq-apply-link,.faq-apply-top,.partners-link,.partners-view-link,.main-partners-link,.market-info-link,.exhibitors-link,.exhibitor-card-more,.more-card-link,.prizes-apply-link,.cat-apply-link,.req-apply-link,.challenge-apply-link,.section-link,.media-link,.locations-map-link,.directions-link,.hero-link,[data-fug-link]{position:relative !important;text-decoration:none !important;padding-bottom:2px !important;transition:opacity 0.25s ease,transform 0.25s ease !important;}
+    .involved-link::after,.curatorial-view-link::after,.showcases-link::after,.showcases-header a::after,.showcase-card-more::after,.winners-view-link::after,.highlights-view-link::after,.intro-view-link::after,.network-view-link::after,.faq-tickets-link::after,.faq-apply-link::after,.faq-apply-top::after,.partners-link::after,.partners-view-link::after,.main-partners-link::after,.market-info-link::after,.exhibitors-link::after,.exhibitor-card-more::after,.more-card-link::after,.prizes-apply-link::after,.cat-apply-link::after,.req-apply-link::after,.challenge-apply-link::after,.section-link::after,.media-link::after,.locations-map-link::after,.directions-link::after,.hero-link::after,[data-fug-link]::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:currentColor;transform:scaleX(1);transform-origin:left center;transition:transform 0.28s ease;}
+    .involved-link:hover::after,.curatorial-view-link:hover::after,.showcases-link:hover::after,.showcases-header a:hover::after,.showcase-card-more:hover::after,.winners-view-link:hover::after,.highlights-view-link:hover::after,.intro-view-link:hover::after,.network-view-link:hover::after,.faq-tickets-link:hover::after,.faq-apply-link:hover::after,.faq-apply-top:hover::after,.partners-link:hover::after,.partners-view-link:hover::after,.main-partners-link:hover::after,.market-info-link:hover::after,.exhibitors-link:hover::after,.exhibitor-card-more:hover::after,.more-card-link:hover::after,.prizes-apply-link:hover::after,.cat-apply-link:hover::after,.req-apply-link:hover::after,.challenge-apply-link:hover::after,.section-link:hover::after,.media-link:hover::after,.locations-map-link:hover::after,.directions-link:hover::after,.hero-link:hover::after,[data-fug-link]:hover::after{transform:scaleX(0);transform-origin:right center;}
+    .involved-link:hover,.curatorial-view-link:hover,.showcases-link:hover,.showcases-header a:hover,.showcase-card-more:hover,.winners-view-link:hover,.highlights-view-link:hover,.intro-view-link:hover,.network-view-link:hover,.faq-tickets-link:hover,.faq-apply-link:hover,.faq-apply-top:hover,.partners-link:hover,.partners-view-link:hover,.main-partners-link:hover,.market-info-link:hover,.exhibitors-link:hover,.exhibitor-card-more:hover,.more-card-link:hover,.prizes-apply-link:hover,.cat-apply-link:hover,.req-apply-link:hover,.challenge-apply-link:hover,.section-link:hover,.media-link:hover,.locations-map-link:hover,.directions-link:hover,.hero-link:hover,[data-fug-link]:hover{transform:translateX(3px);}
+
+    /* ── TICKER ── */
+    .ticker-wrapper { background: var(--navy); border-top: 1px solid rgba(26,39,68,0.1); border-bottom: 1px solid rgba(26,39,68,0.1); overflow: hidden; white-space: nowrap; padding: 10px 0; position: relative; z-index: 10; transition: background 0.28s ease; }
+    .ticker-wrapper:hover { background: var(--white) !important; }
+    .ticker-wrapper:hover .ticker-track { animation-play-state: paused; }
+    .ticker-wrapper:hover .ticker-track span { color: var(--navy) !important; }
+    .ticker-track { display: inline-flex; animation: tickerScroll 35s linear infinite; }
+    .ticker-track span { padding: 0 32px; font-size: 12.5px; font-weight: 500; color: var(--white); letter-spacing: 0.02em; }
+    @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      :root { --band: 48px; }
+      .hero-inner { padding: 80px 48px 48px; }
+      .hero-title { font-size: 40px; max-width: calc(100% - 140px); }
+      .hero-logo { bottom: 120px; right: 48px; }
+      .hero-logo img { height: 80px; }
+      .crosses-bar,.team-crosses-top { padding: 18px 48px; }
+      .who-layout { padding: 0 48px 48px; }
+      .who-title { font-size: 38px; }
+      .editions-header { padding: 40px 48px 28px; }
+      .editions-strip-outer { padding: 0 0 0 6px; }
+      .editions-title { font-size: 36px; }
+      .team-inner { padding: 0 48px; }
+      .team-title { font-size: 36px; margin-bottom: 28px; }
+      .contact-section { padding: 52px 48px 60px; }
+      .contact-layout { gap: 48px; }
+      .contact-title { font-size: 36px; margin-bottom: 28px; }
+      .contact-info-val { font-size: 17px; }
+      .partners-inner { padding: 40px 48px 72px; }
+      .partners-title { font-size: 32px; }
+      .partners-grid { gap: 16px; }
+      .partner-logo-box { padding: 28px 20px; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --band: 20px; }
+      .hero { min-height: auto; }
+      .hero-bg { background-position: center center; }
+      .hero-inner { padding: 80px 20px 40px; }
+      .hero-top-row { margin-bottom: 10px; }
+      .hero-logo { bottom: 120px; right: 20px; top: auto; }
+      .hero-logo img { height: 60px; }
+      .hero-title { font-size: 28px; margin-bottom: 14px; max-width: calc(100% - 90px); }
+      .hero-body { font-size: 12px; max-width: 100%; margin-bottom: 0; }
+      .crosses-bar,.team-crosses-top { padding: 14px 20px; }
+      .who-layout { padding: 0 20px 40px; }
+      .who-title { font-size: 32px; margin-bottom: 20px; }
+      .who-body { font-size: 13px; line-height: 1.7; }
+      .editions-header { padding: 32px 20px 20px; }
+      .editions-strip-outer { padding: 0 0 0 6px; }
+      .editions-title { font-size: 28px; }
+      .editions-strip { gap: 14px; }
+      .edition-card { flex: 0 0 240px; }
+      .edition-img { width: 240px; height: 350px; }
+      .team-inner { padding: 0 20px; }
+      .team-title { font-size: 28px; margin-bottom: 20px; }
+      .team-grid,.team-grid-row2,.team-grid-row3 { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .team-grid-row2,.team-grid-row3 { margin-top: 12px; }
+      .team-grid-row4 { grid-template-columns: 1fr 1fr; margin-top: 12px; }
+      .team-grid,.team-grid-row2,.team-grid-row3,.team-grid-row5 { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .team-name { font-size: 23px; }
+      .team-role { font-size: 15px; }
+      .team-email { font-size: 9.5px; word-break: break-all; }
+      .team-info { padding: 10px 10px 12px; }
+      .contact-section { padding: 40px 20px 48px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+      .contact-title { font-size: 28px; margin-bottom: 24px; }
+      .contact-info-val { font-size: 15px; margin-bottom: 20px; }
+      .form-row { grid-template-columns: 1fr; gap: 12px; margin-bottom: 12px; }
+      .form-input,.form-select,.form-textarea { padding: 12px 14px; font-size: 13px; }
+      .form-textarea { min-height: 120px; }
+      .partners-inner { padding: 32px 20px 48px; }
+      .partners-header { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 28px; }
+      .partners-title { font-size: 26px; }
+      .partners-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .partner-logo-box { padding: 20px 16px; margin-bottom: 10px; }
+      .partner-logo-box img { max-height: 80px; }
+      .partner-desc { font-size: 11px; }
+      .partners-section .cross-icon { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 24px; }
+      .who-title { font-size: 26px; }
+      .editions-title { font-size: 24px; }
+      .team-title { font-size: 24px; }
+      .team-grid,.team-grid-row2,.team-grid-row3 { grid-template-columns: 1fr; }
+      .team-grid-row4 { grid-template-columns: 1fr; }
+      .team-grid,.team-grid-row2,.team-grid-row3,.team-grid-row5 { grid-template-columns: 1fr; }
+      .contact-title { font-size: 24px; }
+      .partners-title { font-size: 22px; }
+      .partners-grid { grid-template-columns: 1fr 1fr; }
+      .edition-card { flex: 0 0 200px; }
+      .edition-img { width: 200px; height: 290px; }
+    }
+  </style>
+  <link rel="preload" href="fonts/DxWideground-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="fonts/InterDisplay-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="fonts/InterDisplay-Bold.otf" as="font" type="font/otf" crossorigin>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-top-row">
+      <p class="hero-eyebrow">Who we are</p>
+      <div class="hero-logo">
+        <img src="images/logos/fakugesi/logo_fakugesi_light.svg" alt="Fak'ugesi Festival" />
+      </div>
+    </div>
+    <h1 class="hero-title">Fak'ugesi African Digital<br>&amp; Innovation Festival</h1>
+    <div class="hero-body">
+      <p>Fak'ugesi exists to switch on ideas at the intersection of imagination and innovation. The Festival brings together African and international creatives, technologists, researchers and innovators to build, question and share new forms of digital and innovation practice.</p>
+      <p class="hero-tagline">Grounded locally.<br>Connected continentally,<br>Relevant globally.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrapper">
+  <div class="ticker-track">
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING&nbsp;• 13–17 OCTOBER 2026&nbsp;• JOHANNESBURG&nbsp;• AFRICAN IMAGINARIES&nbsp;• FAK'UGESI 2026&nbsp;•</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING&nbsp;• 13–17 OCTOBER 2026&nbsp;• JOHANNESBURG&nbsp;• AFRICAN IMAGINARIES&nbsp;• FAK'UGESI 2026&nbsp;•</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING&nbsp;• 13–17 OCTOBER 2026&nbsp;• JOHANNESBURG&nbsp;• AFRICAN IMAGINARIES&nbsp;• FAK'UGESI 2026&nbsp;•</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING&nbsp;• 13–17 OCTOBER 2026&nbsp;• JOHANNESBURG&nbsp;• AFRICAN IMAGINARIES&nbsp;• FAK'UGESI 2026&nbsp;•</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING&nbsp;• 13–17 OCTOBER 2026&nbsp;• JOHANNESBURG&nbsp;• AFRICAN IMAGINARIES&nbsp;• FAK'UGESI 2026&nbsp;•</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING&nbsp;• 13–17 OCTOBER 2026&nbsp;• JOHANNESBURG&nbsp;• AFRICAN IMAGINARIES&nbsp;• FAK'UGESI 2026&nbsp;•</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING&nbsp;• 13–17 OCTOBER 2026&nbsp;• JOHANNESBURG&nbsp;• AFRICAN IMAGINARIES&nbsp;• FAK'UGESI 2026&nbsp;•</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING&nbsp;• 13–17 OCTOBER 2026&nbsp;• JOHANNESBURG&nbsp;• AFRICAN IMAGINARIES&nbsp;• FAK'UGESI 2026&nbsp;•</span>
+  </div>
+</div>
+
+<!-- WHO WE ARE -->
+<section class="who-section">
+  <div class="crosses-bar">
+    <div class="cross-icon cross-icon--navy" style="position:relative;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon cross-icon--navy" style="position:relative;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
+  </div>
+  <div class="who-layout">
+    <h2 class="who-title">Who We Are</h2>
+    <div class="who-body">
+      <p>Since 2014, Fak’ugesi African Digital & Innovation Festival has brought together artists, technologists, researchers, designers, entrepreneurs and cultural practitioners to exchange ideas, build collaborations and share new work.</p>
+      <p>Founded through the Wits School of Arts by Prof Christo Doherty, whose pioneering work in digital arts education and interdisciplinary innovation helped establish the foundations for South Africa’s digital creative sector, the festival found its home at the Tshimologong Digital &amp; Innovation Precinct.</p>
+      <br />
+      <p>Today, Fak’ugesi is one of the continent’s leading platforms for African digital creativity, bringing together practitioners from across Africa and beyond to imagine, build and share new digital futures.</p>
+      <br />
+      <p>Twelve editions.<br>Twelve years of imagining what comes next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIOUS EDITIONS -->
+<section class="editions-section">
+  <div class="editions-header">
+    <h2 class="editions-title">Editions</h2>
+    <div class="editions-nav">
+      <button id="prevEdition" aria-label="Previous">←</button>
+      <button id="nextEdition" aria-label="Next">→</button>
+    </div>
+  </div>
+  <div class="editions-strip-outer">
+    <div class="editions-strip" id="editionsStrip">
+      <div class="edition-card"><div class="edition-img"><img src="images/posters/2017_Poster.jpg" alt="Fak'ugesi 2017" /></div><div class="edition-meta"><div class="edition-top-row"><span class="edition-year">2017</span></div><div class="edition-name">Brave Tech Hearts Beats as One</div></div></div>
+      <div class="edition-card"><div class="edition-img"><img src="images/posters/2018_Poster.jpg" alt="Fak'ugesi 2018" /></div><div class="edition-meta"><div class="edition-top-row"><span class="edition-year">2018</span></div><div class="edition-name">Tap Your Afro Source Code</div></div></div>
+      <div class="edition-card"><div class="edition-img"><img src="images/posters/2019_Poster.jpg" alt="Fak'ugesi 2019" /></div><div class="edition-meta"><div class="edition-top-row"><span class="edition-year">2019</span></div><div class="edition-name">Own Your Force</div></div></div>
+      <div class="edition-card"><div class="edition-img"><img src="images/posters/2020_Poster.png" alt="Fak'ugesi 2020" /></div><div class="edition-meta"><div class="edition-top-row"><span class="edition-year">2020</span></div><div class="edition-name">Power to the Pixel</div></div></div>
+      <div class="edition-card"><div class="edition-img"><img src="images/posters/2021_Poster.jpg" alt="Fak'ugesi 2021" /></div><div class="edition-meta"><div class="edition-top-row"><span class="edition-year">2021</span></div><div class="edition-name">Build Coz You Have To</div></div></div>
+      <div class="edition-card"><div class="edition-img"><img src="images/posters/2022_Poster.png" alt="Fak'ugesi 2022" /></div><div class="edition-meta"><div class="edition-top-row"><span class="edition-year">2022</span></div><div class="edition-name">From Now On</div></div></div>
+      <div class="edition-card"><div class="edition-img"><img src="images/posters/2023_Poster.jpg" alt="Fak'ugesi 2023" /></div><div class="edition-meta"><div class="edition-top-row"><span class="edition-year">2023</span></div><div class="edition-name">More Flow</div></div></div>
+      <div class="edition-card"><div class="edition-img"><img src="images/posters/2024_Poster.jpg" alt="Fak'ugesi 2024" /></div><div class="edition-meta"><div class="edition-top-row"><span class="edition-year">2024</span></div><div class="edition-name">Until Unlocked</div></div></div>
+      <div class="edition-card"><div class="edition-img"><img src="images/posters/2025_Poster.png" alt="Fak'ugesi 2025" /></div><div class="edition-meta"><div class="edition-top-row"><span class="edition-year">2025</span></div><div class="edition-name">Power Surge</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE TEAM -->
+<section class="team-section">
+  <div class="team-crosses-top">
+    <div class="cross-icon cross-icon--navy" style="position:relative;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon cross-icon--navy" style="position:relative;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
+  </div>
+  
+ 
+  <div class="team-inner">
+    <h2 class="team-title">Our  Team</h2>
+
+    <!-- Row 1: Festival Director / Associate Producer / CCI Specialist -->
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_alby.png" alt="Alby Michaels" /></div>
+        <div class="team-info">
+          <div class="team-name">Alby<br>Michaels</div>
+          <div class="team-role">Festival Director</div>
+          <div class="team-email"><a href="mailto:alby@tshimologong.joburg">alby@tshimologong.joburg</a></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_blythe.png" alt="Blythe Stuart Linger" /></div>
+        <div class="team-info">
+          <div class="team-name">Blythe<br>Stuart Linger</div>
+          <div class="team-role">Associate Producer</div>
+          <div class="team-email"><a href="mailto:blythe@tshimologong.joburg">blythe@tshimologong.joburg</a></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_erika.png" alt="Erika Denis" /></div>
+        <div class="team-info">
+          <div class="team-name">Erika<br>Denis</div>
+          <div class="team-role">CCI Specialist</div>
+          <div class="team-email"><a href="mailto:erika@tshimologong.joburg">erika@tshimologong.joburg</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: Business Development Manager / Programme Manager / Graphic Designer -->
+    <div class="team-grid-row2">
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_grace.png" alt="Grace Meadow" /></div>
+        <div class="team-info">
+          <div class="team-name">Grace<br>Meadows</div>
+          <div class="team-role">Business Development Manager</div>
+          <div class="team-email"><a href="mailto:grace@tshimologong.joburg">grace@tshimologong.joburg</a></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_avuzwa.png" alt="Avuzwa Ntshongwana" /></div>
+        <div class="team-info">
+          <div class="team-name">Avuzwa<br>Ntshongwana</div>
+          <div class="team-role">Programme Manager</div>
+          <div class="team-email"><a href="mailto:avuzwa@tshimologong.joburg">avuzwa@tshimologong.joburg</a></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_samuel.png" alt="Sam Gillham" /></div>
+        <div class="team-info">
+          <div class="team-name">Sam<br>Gillham</div>
+          <div class="team-role">Graphic Designer</div>
+          <div class="team-email"><a href="mailto:Samuel.Gillham@gmail.com">Samuel.Gillham@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Administrator / Project Manager / Project Manager -->
+    <div class="team-grid-row3">
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_resego.png" alt="Resego Matshediso" /></div>
+        <div class="team-info">
+          <div class="team-name">Resego<br>Matshediso</div>
+          <div class="team-role">Administrator</div>
+          <div class="team-email"><a href="mailto:resego@tshimologong.joburg">resego@tshimologong.joburg</a></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_mq.png" alt="Mqalatjie Moretsele" /></div>
+        <div class="team-info">
+          <div class="team-name">Mqalatjie<br>Moretsele</div>
+          <div class="team-role">Project Manager</div>
+          <div class="team-email"><a href="mailto:mqalatjie@tshimologong.joburg">mqalatjie@tshimologong.joburg</a></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_diane2.png" alt="Diane Walker" /></div>
+        <div class="team-info">
+          <div class="team-name">Diane<br>Walker</div>
+          <div class="team-role">Project Manager</div>
+          <div class="team-email"><a href="mailto:diane@tshimologong.joburg">diane@tshimologong.joburg</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 4: Marketing Coordinator / Web Master / Resident Festival Writer -->
+    <div class="team-grid-row4">
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_edson.png" alt="Edson Vilankulo" /></div>
+        <div class="team-info">
+          <div class="team-name">Edson<br>Vilankulo</div>
+          <div class="team-role">Marketing Coordinator</div>
+          <div class="team-email"><a href="mailto:edson@tshimologong.joburg">edson@tshimologong.joburg</a></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_stanley.png" alt="Stanley Moloto" /></div>
+        <div class="team-info">
+          <div class="team-name">Stanley<br>Moloto</div>
+          <div class="team-role">Web Master</div>
+          <div class="team-email"><a href="mailto:stanley@tshimologong.joburg">stanley@tshimologong.joburg</a></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_ashraf.png" alt="Ashraf Johaardien" /></div>
+        <div class="team-info">
+          <div class="team-name">Ashraf<br>Johaardien</div>
+          <div class="team-role">Resident Festival Writer</div>
+          <div class="team-email"><a href="mailto:ashrafjohaardien@me.com">ashrafjohaardien@me.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 5: Web Developer -->
+    <div class="team-grid-row5">
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_unathy.png" alt="Unathi Qamza" /></div>
+        <div class="team-info">
+          <div class="team-name">Unathi<br>Qamza</div>
+          <div class="team-role">Web Developer</div>
+          <div class="team-email"><a href="mailto:unathi@addmoredigital.co.za">unathi@addmoredigital.co.za</a></div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img"><img src="images/team photos/team_oratile.png" alt="Oratile Molokoane" /></div>
+        <div class="team-info">
+          <div class="team-name">Oratile<br>Molokoane</div>
+          <div class="team-role">Intern</div>
+          <div class="team-email"><a href="mailto:hello@fakugesi.co.za">hello@fakugesi.co.za</a></div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    
+</div>
+
+  </div>
+  <div class="cross-icon cross-icon--navy" style="bottom:20px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
+  <div class="cross-icon cross-icon--navy" style="bottom:20px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
+</section>
+
+<!-- GET IN TOUCH -->
+<section class="contact-section">
+  <div class="contact-layout">
+    <div class="contact-left">
+      <h2 class="contact-title">Get in Touch</h2>
+      <p class="contact-info-label">Email</p>
+      <p class="contact-info-val">hello@fakugesi.co.za</p>
+      <p class="contact-info-label">Phone</p>
+      <p class="contact-info-val">+27 11 717 8156</p>
+      <p class="contact-info-label">Address</p>
+      <p class="contact-info-val" style="font-size:18px;">41 Juta Street<br>Braamfontein<br>Johannesburg<br>South Africa</p>
+      <div style="margin-top:40px;">
+        <p class="contact-socials-label">Follow us</p>
+        <div class="contact-social-icons">
+          <a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="https://x.com/fakugesi" target="_blank" rel="noopener" aria-label="X"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.facebook.com/fakugesi" target="_blank" rel="noopener" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Your Name" /></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="Your Email Address" /></div>
+      </div>
+      <div class="form-full form-group">
+        <label class="form-label">Subject</label>
+        <select class="form-select form-input">
+          <option value="" disabled selected>Please select a subject</option>
+          <option>General Inquiry</option>
+          <option>Partnership</option>
+          <option>Media</option>
+          <option>Tickets</option>
+        </select>
+      </div>
+      <div class="form-full form-group"><label class="form-label">Message</label><textarea class="form-textarea form-input" placeholder="Type your message"></textarea></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR MAIN PARTNERS -->
+<section class="partners-section" id="partners">
+  <div class="cross-icon cross-icon--navy" style="top:20px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
+  <div class="cross-icon cross-icon--navy" style="top:20px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
+  <div class="partners-inner">
+    <div class="partners-header">
+      <h2 class="partners-title">Our Main Partners</h2>
+    </div>
+    <div class="partners-grid">
+
+      <!-- 1 — Tshimologong -->
+      <div class="partner-card">
+        <a href="https://tshimologong.joburg/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Tshimologong">
+          <div class="partner-logo-box">
+            <img src="images/logos/tshimologong/logo_tshimologong_dark.svg" alt="Tshimologong" />
+          </div>
+        </a>
+      </div>
+
+      <!-- 2 — Wits -->
+      <div class="partner-card">
+        <a href="https://www.wits.ac.za/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Wits University">
+          <div class="partner-logo-box">
+            <img src="images/logos/wits/logo_wits_colour_colloquial_extended.svg" alt="Wits University" class="keep-color" />
+          </div>
+        </a>
+      </div>
+
+      <!-- 3 — Digital Dome -->
+      <div class="partner-card">
+        <a href="https://digitaldome.wits.ac.za/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Wits Digital Dome">
+          <div class="partner-logo-box">
+            <img src="images/logos/immersiveAfrica/digitaldome.svg" alt="Digital Dome" />
+          </div>
+        </a>
+      </div>
+
+      <!-- 4 — Origins Centre -->
+      <div class="partner-card">
+        <a href="https://www.wits.ac.za/origins/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Origins Centre">
+          <div class="partner-logo-box">
+            <img src="images/logos/wits/origins-centre-logox200.png" alt="Origins Centre" class="keep-color" />
+          </div>
+        </a>
+      </div>
+
+      <div class="partner-card">
+       <a href="https://www.blackpepperafrica.co.za/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Black Pepper">
+       <div class="partner-logo-box"><img src="images/logos/BPP_black_cropped.png" alt="Black Pepper" class="keep-color"/></div>
+       </a>
+      </div>
+
+      <!-- 5 — Web Tickets -->
+      <div class="partner-card">
+        <a href="https://www.webtickets.co.za/v2/event.aspx?itemid=1582162423" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Buy tickets on Web Tickets">
+          <div class="partner-logo-box">
+            <img src="images/image updates/WT New CI Short-03.png" alt="Web Tickets" class="keep-color" />
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="nav.js"></script>
+<script src="footer.js"></script>
+<script src="starArrows.js"></script>
+<script>
+(function(){
+  var lastY = window.scrollY, rot = 0, ticking = false, scrollTimer = null;
+  function resetRot(){ rot = 0; document.querySelectorAll('.cross-icon,.fug-footer-cross').forEach(function(el){ el.style.transition = 'transform 0.45s ease'; el.style.transform = 'rotate(0deg)'; }); }
+  function onScroll(){ if(!ticking){ requestAnimationFrame(function(){ var y = window.scrollY, delta = y - lastY; if(Math.abs(delta) > 0){ rot += delta > 0 ? 15 : -15; document.querySelectorAll('.cross-icon,.fug-footer-cross').forEach(function(el){ el.style.transition = 'transform 0.1s linear'; el.style.transform = 'rotate('+rot+'deg)'; }); } lastY = y; ticking = false; clearTimeout(scrollTimer); scrollTimer = setTimeout(resetRot, 300); }); ticking = true; } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();
+
+/* ── PREVIOUS EDITIONS: arrow buttons ── */
+(function () {
+  const strip = document.getElementById('editionsStrip');
+  const prevBtn = document.getElementById('prevEdition');
+  const nextBtn = document.getElementById('nextEdition');
+  if (!strip || !prevBtn || !nextBtn) return;
+  let offset = 0;
+  function getCardWidth() { const card = strip.querySelector('.edition-card'); return card ? card.getBoundingClientRect().width + 20 : 320; }
+  function maxOffset() { const outerW = strip.parentElement.getBoundingClientRect().width; return Math.max(0, strip.scrollWidth - outerW); }
+  function move(direction) { const cw = getCardWidth(); offset += direction * cw; offset = Math.max(0, Math.min(offset, maxOffset())); strip.style.transform = `translateX(${-offset}px)`; }
+  nextBtn.addEventListener('click', () => move(1));
+  prevBtn.addEventListener('click', () => move(-1));
+})();
+</script>
+</body>
+</html>
