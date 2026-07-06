@@ -121,6 +121,18 @@
     .cross-icon{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:18px!important;height:18px!important;flex-shrink:0!important;position:absolute!important;z-index:6!important;opacity:1!important;animation:none!important;transition:transform 0.1s linear!important;}
     .cross-icon svg{width:100%;height:100%;}
 
+    /* ── SEC-CROSSES WRAPPER (groups a top/bottom pair, positions via flex like index/programme pages) ── */
+    .sec-crosses{position:absolute;left:0;right:0;display:flex;justify-content:space-between;padding:0 200px;pointer-events:none;z-index:6;}
+    .sec-crosses-top{top:40px;}
+    .sec-crosses-bottom{bottom:30px;}
+    .sec-crosses .cross-icon{position:static!important;}
+    .faq-section .sec-crosses-top,.partners-section .sec-crosses-top{top:16px;}
+    .faq-section .sec-crosses-bottom,.partners-section .sec-crosses-bottom{bottom:16px;}
+    .partners-section .sec-crosses-top{top:20px;}
+    .partners-section .sec-crosses-bottom{bottom:20px;}
+    /* Premiering/ongoing content is padded 248px at desktop — pull crosses in closer to the edge so they clear the text */
+    .premiering-section .sec-crosses,.ongoing-section .sec-crosses{padding:0 32px;}
+
     /* ── PARTNERS CAROUSEL ── */
     .partners-section{
       background:var(--lavender);
@@ -188,6 +200,8 @@
       .section-header-label{font-size:16px}
       .partners-title{padding:0 48px;}
       .partners-blue-band{padding:24px 48px;}
+      .sec-crosses{padding:0 48px;}
+      .faq-section{padding:64px 48px;}
     }
     @media(max-width:900px){
       .hero-title{font-size:44px}
@@ -213,8 +227,11 @@
       .partners-title{font-size:26px!important;padding:0 24px!important;margin-bottom:28px!important;}
       .partners-blue-band{padding:20px 24px!important;}
       .carousel-logo{width:150px;height:90px;padding:16px 18px;}
-      .cross-icon[style*="left:200px"]{left:16px!important;}
-      .cross-icon[style*="right:200px"]{right:16px!important;}
+      .premiering-section .sec-crosses,.ongoing-section .sec-crosses{padding:0 12px;}
+      .faq-section .sec-crosses,.partners-section .sec-crosses{padding:0 14px;}
+      .premiering-section .premiere-co{flex-wrap:wrap;row-gap:14px;}
+      .premiering-section .premiere-co .dream-feel-image{flex-basis:100%;}
+      .dream-feel-image{padding:0 12px 0 0!important;max-width:100%!important;height:auto!important;object-fit:contain!important;}
     }
     @media(max-width:480px){
       .hero-title{font-size:28px!important;}
@@ -314,10 +331,14 @@
 <section class="premiering-section">
   <div class="premiering-bg"></div>
   <div class="premiering-overlay"></div>
-  <div class="cross-icon" style="top:40px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,1)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,1)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon" style="top:40px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,1)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,1)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon" style="bottom:30px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,1)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,1)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon" style="bottom:30px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,1)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,1)" stroke-width="1.5"/></svg></div>
+  <div class="sec-crosses sec-crosses-top">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,1)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,1)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,1)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,1)" stroke-width="1.5"/></svg></div>
+  </div>
+  <div class="sec-crosses sec-crosses-bottom">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,1)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,1)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,1)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,1)" stroke-width="1.5"/></svg></div>
+  </div>
 
   <div class="premiering-content">
     <h2 class="section-header-label">NOW SHOWING</h2>
@@ -328,7 +349,7 @@
     <p class="premiere-body">Kancícà (meaning "link" in Fongbe) is an immersive art and film experience that traces the journey of Na Agontimé, queen-mother of Danxomè's Kingdom, and the living cultural heritage she carried across the Atlantic through generations.</p>
     <div class="premiere-co">
       <img class="dream-feel-image" src="images/logos/immersiveAfrica/dreamfeel.svg" alt="Dream Feel Factory" style="height:20px;filter:invert(1) brightness(2)"/>
-      <img src="images/logos/immersiveAfrica/mansab.png" alt="MansA" style="height:36px;filter:brightness(0) invert(1);opacity:.85;"/>
+      <img src="images/logos/immersiveAfrica/mansab.png" alt="MansA" style="height:36px;width:120px;object-fit:contain;filter:brightness(0) invert(1);opacity:.85;"/>
       <div class="ongoing-eunic-logo" style="width:120px;"></div>
     </div>
     <a class="section-cta" href="https://www.webtickets.co.za/v2/event.aspx?itemid=1582162423" target="_blank" rel="noopener noreferrer">GET YOUR TICKETS</a>
@@ -339,10 +360,14 @@
 <section class="ongoing-section">
   <div class="ongoing-bg"></div>
   <div class="ongoing-overlay"></div>
-  <div class="cross-icon" style="top:40px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon" style="top:40px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon" style="bottom:30px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon" style="bottom:30px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+  <div class="sec-crosses sec-crosses-top">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+  </div>
+  <div class="sec-crosses sec-crosses-bottom">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+  </div>
 
   <div class="ongoing-content">
     <h2 class="section-header-label">NOW SHOWING</h2>
@@ -363,11 +388,9 @@ support of the French Institute of South Africa, and produced by Dream Feel Fact
 
 <!-- ═══ FAQ ═══ -->
 <section class="faq-section reveal">
-  <div class="cross-icon" style="top:16px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="top:16px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="sec-crosses sec-crosses-top">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
   </div>
   <div class="faq-layout">
     <div>
@@ -398,21 +421,17 @@ support of the French Institute of South Africa, and produced by Dream Feel Fact
       </div>
     </div>
   </div>
-  <div class="cross-icon" style="bottom:16px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="bottom:16px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="sec-crosses sec-crosses-bottom">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
   </div>
 </section>
 
 <!-- ═══ PARTNERS CAROUSEL ═══ -->
 <section class="partners-section reveal">
-  <div class="cross-icon" style="top:20px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="top:20px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="sec-crosses sec-crosses-top">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
   </div>
   <h2 class="partners-title">Our Immersive Africa Partners</h2>
   <div class="partners-carousel-outer">
@@ -423,11 +442,9 @@ support of the French Institute of South Africa, and produced by Dream Feel Fact
       Immersive Africa is supported by the Spaces of Culture Programme under Africa-Europe Partnerships for Culture, managed by EUNIC. By attending this event, you acknowledge and consent to photography and video recordings that may include your image. These materials may be used by Fak'ugesi African Digital Innovation Festival for marketing, promotional, archival, and communication purposes across our print and digital platforms, including social media.
     </p>
   </div>
-  <div class="cross-icon" style="bottom:20px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="bottom:20px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="sec-crosses sec-crosses-bottom">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
   </div>
 </section>
 
