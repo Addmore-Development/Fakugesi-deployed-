@@ -132,7 +132,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   .theme-expandable .theme-expandable-logo{
     display:block !important;
     filter:brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%);
-    height:80px;
+    height:90px;
     margin-bottom:18px;
   }
 }
@@ -204,7 +204,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     .spotlight-readmore-btn .hero-link-arrow{transition:transform 0.22s ease;}
     .spotlight-readmore-btn:hover .hero-link-arrow{transform:translateX(4px);}
 
-   
+    /* Mobile-only read more trigger for the Festival Director message (hidden by default; shown <=768px) */
     .spotlight-readmore-mobile-only{display:none;}
 
     .spotlight-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:1000;align-items:center;justify-content:center;padding:40px 20px;}
@@ -229,18 +229,15 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     .soc-tab.active{color:var(--navy);border-color:rgba(26,39,68,0.3);background:rgba(26,39,68,0.06);}
     .soc-feed-panel{display:none;} .soc-feed-panel.active{display:block;}
     .happening-strip-outer{overflow:hidden;margin:0;}
-    .happening-strip{
-  display:flex;gap:14px;width:max-content;
-  will-change:transform;
-  -webkit-transform:translateZ(0);
-  transform:translateZ(0);
-  -webkit-backface-visibility:hidden;
-  backface-visibility:hidden;
-}
+    .happening-strip{display:flex;gap:14px;width:max-content;animation:stripScroll 28s linear infinite;}
+    .happening-strip:hover{animation-play-state:paused;}
+    @keyframes stripScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     .strip-img{flex:0 0 320px;height:280px;overflow:hidden;}
     .strip-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;display:block;}
     .strip-img:hover img{transform:scale(1.04);}
-    .tweet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .tweet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start;}
+    .tweet-embed-cell{width:100%;}
+    .tweet-embed-cell .twitter-tweet{margin:0 !important;width:100% !important;}
     .tweet-card{border:1px solid rgba(26,39,68,0.1);padding:22px;background:var(--white);transition:box-shadow 0.25s,transform 0.25s;}
     .tweet-card:hover{box-shadow:0 8px 28px rgba(26,39,68,0.1);transform:translateY(-3px);}
     .tweet-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
@@ -390,7 +387,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       }
       .theme-mobile-box .theme-year-label{font-size:30px !important;margin-bottom:8px !important;color:#ffffff !important;}
       .theme-mobile-box .theme-sub{font-size:14px;margin-bottom:12px;color:#ffffff !important;opacity:0.92;}
-      .theme-mobile-box .theme-head-logo{height:70px;width:auto;max-width:90%;margin-bottom:8px;filter:brightness(0) invert(1);}
+      .theme-mobile-box .theme-head-logo{height:48px;width:auto;max-width:80%;margin-bottom:8px;filter:brightness(0) invert(1);}
 
       .theme-toggle-btn{
         display:flex;
@@ -424,7 +421,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       .theme-expandable-year,.theme-expandable-sub,.theme-expandable-logo{display:block;}
       .theme-expandable-year{font-size:26px !important;margin-bottom:8px !important;color:var(--dark-text) !important;}
       .theme-expandable-sub{margin-bottom:14px;color:var(--dark-text) !important;opacity:0.75;}
-      .theme-expandable-logo{height:70px;margin-bottom:20px;}
+      .theme-expandable-logo{height:32px;margin-bottom:20px;}
       .theme-expandable .theme-body{color:var(--dark-text) !important;opacity:0.88;margin-bottom:20px;}
       .theme-expandable .theme-dates{color:var(--dark-text) !important;opacity:0.9;margin-bottom:24px;}
       .theme-expandable .btn-row{margin-bottom:20px;}
@@ -471,6 +468,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       .happening-section{padding:48px 0;}.happening-inner{padding:0 20px;}
       .happening-header{flex-direction:column;align-items:flex-start;gap:16px;}.happening-title{font-size:28px;}
       .strip-img{flex:0 0 200px;height:180px;}
+      .happening-strip{animation-duration:45s;}
       .tweet-grid{grid-template-columns:1fr;gap:12px;}.fb-feed{grid-template-columns:1fr;}
       .happening-caption{padding:0 20px;}
       .faq-section{padding:40px 0 56px;}.faq-inner{padding:0 20px;}
@@ -721,65 +719,38 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     </div>
   </div>
   <!-- INSTAGRAM -->
-  <div class="soc-feed-panel active" id="feed-instagram">
-    <div class="happening-strip-outer"><div class="happening-strip">
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy_of__MGL4129.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/_MGL7139.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/image updates/Festival Directors Award.png" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/_MGL2775.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Fak_ugesi_2025-32.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy_of__MGL4129.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/image00028.jpeg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy_of__MGL0176.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy of _MGL4253.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Fak_ugesi_2025-32.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy_of__MGL4129.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/_MGL7139.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/image updates/Festival Directors Award.png" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/_MGL2775.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Fak_ugesi_2025-32.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy_of__MGL4129.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/image00028.jpeg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy_of__MGL0176.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy of _MGL4253.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Fak_ugesi_2025-32.jpg" alt="Instagram"/></a></div>
-    </div></div>
-    <p class="happening-caption">Follow <a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener" style="color:var(--navy)">@fakugesi</a> on Instagram for live festival updates</p>
+   <div class="soc-feed-panel active" id="feed-instagram">
+    <div class="happening-inner" style="padding-top:0;">
+    <div class="elfsight-app-d3393fa3-d87a-41aa-a70a-6056fd71509d" data-elfsight-app-lazy></div>
+    <p class="happening-caption" style="padding:0;">Follow <a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener" style="color:var(--navy)">@fakugesi</a> on Instagram for live festival updates</p>
+    </div>
   </div>
   <!-- TWITTER -->
   <div class="soc-feed-panel" id="feed-twitter">
     <div class="happening-inner" style="padding-top:0;">
       <div class="tweet-grid">
-        <div class="tweet-card"><div class="tweet-header"><div class="tweet-avatar">F</div><div><div class="tweet-name">Fak'ugesi Festival</div><div class="tweet-handle">@fakugesi</div></div><div class="tweet-x-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622z"/></svg></div></div><p class="tweet-text">Awards applications are now OPEN! Submit your project and be part of Africa's most celebrated digital innovation awards. <a href="#">#FakugesiAwards</a></p><div class="tweet-meta"><span>2h ago</span><span>💬 12</span><span>🔁 34</span><span>❤️ 98</span></div></div>
-        <div class="tweet-card"><div class="tweet-header"><div class="tweet-avatar">F</div><div><div class="tweet-name">Fak'ugesi Festival</div><div class="tweet-handle">@fakugesi</div></div><div class="tweet-x-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622z"/></svg></div></div><p class="tweet-text">The theme is "African Imaginaries" — a celebration of Africa's speculative futures and creative visions. Join us 13–17 October. <a href="#">#Fakugesi2026</a></p><div class="tweet-meta"><span>1d ago</span><span>💬 28</span><span>🔁 71</span><span>❤️ 210</span></div></div>
-        <div class="tweet-card"><div class="tweet-header"><div class="tweet-avatar">F</div><div><div class="tweet-name">Fak'ugesi Festival</div><div class="tweet-handle">@fakugesi</div></div><div class="tweet-x-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622z"/></svg></div></div><p class="tweet-text">Immersive Africa returns. Experience cutting-edge XR, VR and dome installations at the Wits Anglo American Digital Dome. <a href="#">#ImmersiveAfrica</a></p><div class="tweet-meta"><span>3d ago</span><span>💬 19</span><span>🔁 55</span><span>❤️ 174</span></div></div>
+        <div class="tweet-embed-cell">
+          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">SWITCH ON<br><br>The signal is now transmitting.<br>African Imaginaries is now transmitting.<br><br>See <a href="https://t.co/EnCa0toRiO">https://t.co/EnCa0toRiO</a><br>13–17 October 2026<a href="https://x.com/WitsUniversity?ref_src=twsrc%5Etfw">@WitsUniversity</a> <a href="https://x.com/TshimologongIT?ref_src=twsrc%5Etfw">@TshimologongIT</a> <a href="https://x.com/hashtag/Fakugesi2026?src=hash&amp;ref_src=twsrc%5Etfw">#Fakugesi2026</a> <a href="https://x.com/hashtag/AfricanImaginaries?src=hash&amp;ref_src=twsrc%5Etfw">#AfricanImaginaries</a> <a href="https://t.co/MVOmNXEIRG">pic.twitter.com/MVOmNXEIRG</a></p>&mdash; Fak&#39;ugesi Festival (@fakugesi) <a href="https://x.com/fakugesi/status/2073056259180245196?ref_src=twsrc%5Etfw">July 3, 2026</a></blockquote>
+        </div>
+        <div class="tweet-embed-cell">
+          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">At the first Fak’ugesi Awards, an industry still finding its name watched itself being recognised for the first time. Eduardo Cachucho’s memory isn’t of the ceremony. It’s of what happened on people’s faces.<a href="https://x.com/hashtag/MemoryEngines?src=hash&amp;ref_src=twsrc%5Etfw">#MemoryEngines</a> <a href="https://x.com/hashtag/Fakugesi2026?src=hash&amp;ref_src=twsrc%5Etfw">#Fakugesi2026</a> <a href="https://x.com/hashtag/AfricanImaginaries?src=hash&amp;ref_src=twsrc%5Etfw">#AfricanImaginaries</a> <a href="https://x.com/hashtag/TshimologongTheFuture?src=hash&amp;ref_src=twsrc%5Etfw">#TshimologongTheFuture</a> <a href="https://t.co/BIsWMubESs">pic.twitter.com/BIsWMubESs</a></p>&mdash; Fak&#39;ugesi Festival (@fakugesi) <a href="https://x.com/fakugesi/status/2080677739460284429?ref_src=twsrc%5Etfw">July 24, 2026</a></blockquote>
+        </div>
+        <div class="tweet-embed-cell">
+          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dr Tegan Bristow remembers the moment ownership became the point. She is the second of three Festival Directors we’re speaking to this week, holding Fak’ugesi’s middle years: Transformation.<a href="https://x.com/WitsUniversity?ref_src=twsrc%5Etfw">@WitsUniversity</a> <a href="https://x.com/TshimologongIT?ref_src=twsrc%5Etfw">@TshimologongIT</a><a href="https://x.com/hashtag/MemoryEngines?src=hash&amp;ref_src=twsrc%5Etfw">#MemoryEngines</a> <a href="https://x.com/hashtag/Fakugesi2026?src=hash&amp;ref_src=twsrc%5Etfw">#Fakugesi2026</a> <a href="https://x.com/hashtag/AfricanImaginaries?src=hash&amp;ref_src=twsrc%5Etfw">#AfricanImaginaries</a> <a href="https://t.co/HNyYsbJPHM">pic.twitter.com/HNyYsbJPHM</a></p>&mdash; Fak&#39;ugesi Festival (@fakugesi) <a href="https://x.com/fakugesi/status/2080335539757035683?ref_src=twsrc%5Etfw">July 23, 2026</a></blockquote>
+        </div>
       </div>
+      <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
       <p class="happening-caption" style="padding:0;">Follow <a href="https://x.com/fakugesi" target="_blank" rel="noopener" style="color:var(--navy)">@fakugesi</a> on X for real-time updates</p>
     </div>
   </div>
-  <!-- FACEBOOK -->
-  <div class="soc-feed-panel" id="feed-facebook">
-    <div class="happening-inner" style="padding-top:0;">
-      <div class="fb-feed">
-        <div class="fb-card">
-          <div class="fb-card-img"><img src="images/Copy_of__MGL4129.jpg" alt="Festival post"/></div>
-          <div class="fb-card-body">
-            <div class="fb-card-date">April 7, 2026</div>
-            <p class="fb-card-text">Awards applications are now open! Submit your project before the deadline and join Africa's most exciting digital innovation celebration.</p>
-            <div class="fb-card-actions"><span>142 Likes</span><span>23 Comments</span><span>18 Shares</span></div>
-          </div>
-        </div>
-        <div class="fb-card">
-          <div class="fb-card-img"><img src="images/Fak_ugesi_2025-32.jpg" alt="Festival post"/></div>
-          <div class="fb-card-body">
-            <div class="fb-card-date">March 28, 2026</div>
-            <p class="fb-card-text">2026 Theme Announcement: African Imaginaries. Explore speculative futures, Afrofuturism, and African creative visions across 5 days of programming.</p>
-            <div class="fb-card-actions"><span>287 Likes</span><span>41 Comments</span><span>93 Shares</span></div>
-          </div>
-        </div>
-      </div>
-      <p class="happening-caption" style="padding:0;">Follow <a href="https://www.facebook.com/fakugesi" target="_blank" rel="noopener" style="color:var(--navy)">Fak'ugesi Festival</a> on Facebook for news and updates</p>
-    </div>
+
+ <!-- FACEBOOK -->
+<div class="soc-feed-panel" id="feed-facebook">
+  <div class="happening-inner" style="padding-top:0;">
+    <div class="elfsight-app-630fd93a-aeb9-461b-9b63-ef20ece89bf6" data-elfsight-app-lazy></div>
+    <p class="happening-caption" style="padding:0;">Follow <a href="https://www.facebook.com/fakugesi" target="_blank" rel="noopener" style="color:var(--navy)">Fak'ugesi Festival</a> on Facebook for news and updates</p>
+  </div>
+</div>
   </div>
 </section>
 
@@ -855,6 +826,9 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       tab.classList.add('active');
       document.querySelectorAll('.soc-feed-panel').forEach(p => p.classList.remove('active'));
       document.getElementById('feed-' + feed).classList.add('active');
+      if (feed === 'twitter' && window.twttr && window.twttr.widgets) {
+        window.twttr.widgets.load(document.getElementById('feed-twitter'));
+      }
     });
   });
 
@@ -969,48 +943,6 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     if (e.target === this) closeSpotlightModal();
   });
 
-  /* ── INSTAGRAM STRIP: JS-driven, frame-rate independent scroll ──
-     Fixes the "lightning fast on iOS" bug: the previous CSS @keyframes
-     animation relied on the browser's animation clock, which iOS Safari
-     paced inconsistently once other animations (ticker, ken burns, reveal
-     transitions) were running on the same page. This version moves the
-     strip by a fixed pixels-per-second speed using requestAnimationFrame's
-     real elapsed time, so the scroll speed is identical on iOS and Android. */
-  (function () {
-    var strip = document.querySelector('.happening-strip');
-    if (!strip) return;
-
-    var speed = 40;        // pixels per second — tune to taste
-    var x = 0;
-    var paused = false;
-    var lastTime = null;
-    var halfWidth = 0;
-
-    function measure() {
-      halfWidth = strip.scrollWidth / 2;
-    }
-    measure();
-    window.addEventListener('resize', measure);
-    window.addEventListener('load', measure);
-
-    strip.addEventListener('mouseenter', function () { paused = true; });
-    strip.addEventListener('mouseleave', function () { paused = false; });
-
-    function frame(time) {
-      if (lastTime === null) lastTime = time;
-      var dt = (time - lastTime) / 1000;
-      lastTime = time;
-
-      if (!paused && halfWidth > 0) {
-        x -= speed * dt;
-        if (x <= -halfWidth) x += halfWidth;
-        strip.style.transform = 'translate3d(' + x + 'px,0,0)';
-      }
-      requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  })();
-
   /* ── COUNTDOWN TO 13 OCT 2026 ── */
   (function () {
     var target = new Date('2026-10-13T00:00:00+02:00').getTime();
@@ -1031,5 +963,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     setInterval(tick, 1000);
   })();
 </script>
+
+<script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 </html>
