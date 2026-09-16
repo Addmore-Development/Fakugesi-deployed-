@@ -32,3 +32,19 @@ jobs:
             **/*.zip
             **/*.log
             **/README.md
+            images/**
+            fonts/**
+            discover/imgs/**
+            discover/pdf resource/**
+            **/*.mp4
+            **/*.jpg
+            **/*.jpeg
+            **/*.png
+            **/*.JPG
+            **/*.JPEG
+            **/*.PNG
+            **/*.svg
+            **/*.webp
+            **/*.pdf
+            **/*.otf
+            **/*.ttf
